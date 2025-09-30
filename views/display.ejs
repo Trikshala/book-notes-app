@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="sortTitle mb-3">Sorted on - <%= sortTitle %></h1>
+    <% notes.forEach(note => { %>
+        <div class="note-card">
+            <div class="left-side">
+                <img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%=note.isbn%>-M.jpg" />
+                <a href="#" class="view-btn btn btn-dark mt-2">View Note</a>
+            </div>
+            
+            <div class="note-content">
+                <a class="view-note" href="#"> 
+                    <h2 class="title mb-3"><%= note.title %></h2>
+                </a>
+                <p class="author"><strong>Author:</strong> <%= note.author %></p>
+                <p class="date"><strong>Made On:</strong> 
+                    <%= new Date(note.created_at).toLocaleDateString('en-US', { 
+                        weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' 
+                    }) %>
+                </p>
+                <p class="rating"><%= '⭐'.repeat(note.rating) %></p>
+                <p class="book-note"><%= note.note %></p>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+
+<%- include('partials/footer.ejs') %>
