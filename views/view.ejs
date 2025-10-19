@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="vnote-container">
+        <img class="vnote-cover" src="https://covers.openlibrary.org/b/isbn/<%=note.isbn%>-M.jpg" />
+        <div class="vnote-text">
+            <h1 class="vnote-title">
+                <%= note.title %>
+            </h1>
+            <h5 class="vnote-author">Author: <%= note.author %>
+            </h5>
+            <h6 class="vnote-isbn">ISBN: <%= note.isbn %>
+            </h6>
+            <h6>Made On:
+                <%= new Date(note.created_at).toLocaleDateString('en-US', { weekday: 'short' , day: '2-digit' ,
+                    month: 'short' , year: 'numeric' }) %>
+            </h6>
+            <p class="vrating">
+                <%= '⭐' .repeat(note.rating) %>
+            </p>
+            <p class="vnote-content">
+                <%= note.note %>
+            </p>
+            <div class="action-btns">
+                <a href="/edit/<%= note.id %>" class="edit-note btn btn-dark mt-2">Edit</a>
+                <a href="/delete/<%= note.id %>" class="delete-note btn btn-dark mt-2">Delete</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <%- include('partials/footer.ejs') %>

@@ -1,7 +1,5 @@
 body {
     background-color: #D1D8BE;
-    
-
 }
 
 html,
@@ -11,13 +9,30 @@ body {
     display: flex;
     flex-direction: column;
 }
-h1{
+
+main {
+    flex: 1;
+}
+
+h1 {
     color: #34656D;
     font-weight: bolder;
 }
+
 .navbar {
     background-color: #819A91;
 
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+
+}
+
+.nav-link:hover {
+    color: #fff;
+    background-color: #D1D8BE;
+    border-radius: 10px;
 }
 
 h2 {
@@ -25,42 +40,41 @@ h2 {
     font-weight: bolder;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     background-color: #D1D8BE;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     color: black;
     background-color: #819A91;
 }
 
 .container {
     display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    gap: 2rem;              
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     width: 100%;
-    max-width: 800px;       
-    margin: 2rem auto; 
-    padding-bottom: 2rem;    
+    max-width: 800px;
+    margin: 2rem auto;
+    padding-bottom: 2rem;
 }
 
 .note-card {
     display: flex;
-    gap: 1.5rem;  
+    gap: 1.5rem;
     padding: 2.5rem;
     border: 1px solid #819A91;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    max-width: 700px;      
-    width: 100%;             
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
 }
 
 .left-side {
     display: flex;
-    flex-direction: column; 
-    /* align-items: center;    */
-    gap: 2rem; 
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .book-cover {
@@ -70,11 +84,96 @@ h2 {
 }
 
 .note-content {
-    flex: 1;               
+    flex: 1;
     text-align: justify;
 }
 
-.view-btn{
+.view-btn {
     background-color: #34656D;
 }
 
+.vnote-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    padding: 30px 45px 30px 45px;
+}
+
+.vnote-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vnote-cover {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vnote-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.vnote-author,
+.vnote-isbn,
+.vrating {
+    color: #555;
+}
+
+.vnote-content {
+    line-height: 1.6;
+    font-size: 1rem;
+    white-space: pre-line;
+    text-align: justify;
+    padding-right: 25%;
+}
+
+.action-btns {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.edit-note,
+.delete-note {
+    padding: 5px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (max-width: 980px) {
+    .vnote-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vnote-text {
+        text-align: center;
+    }
+
+    .vnote-content {
+        padding-right: 0;
+        padding: 10%;
+        text-align: justify;
+        padding-top: 3px;
+    }
+
+    .action-btns {
+        justify-content: center;
+        margin: 0 auto;
+
+    }
+    .edit-note,
+    .delete-note {
+        text-align: center;
+    }
+}
