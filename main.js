@@ -25,7 +25,7 @@ async function getCategories() {
     return result.rows;
 }
 
-const categories = await getCategories();
+const UnqCategories = await getCategories();
 
 app.get("/", async (req, res) => {
     let query = "SELECT * FROM notes";
@@ -62,11 +62,12 @@ app.get("/", async (req, res) => {
     }
     const result = await db.query(query, params);
     const notes = result.rows;
-    res.render("list.ejs", { pageTitle: "Home Page", notes: notes, categories: categories, sortTitle: sortTitle });
+    res.render("list.ejs", { pageTitle: "Home Page", notes: notes, categories: UnqCategories, sortTitle: sortTitle });
 });
 
 app.get("/notes/new", (req, res)=>{
-    res.render("form.ejs", {pageTitle : "New Note", categories : categories});
+    const allCategories = ['Productivity','Classic','Sci-Fi','Self-Help','History','Philosophy','Biography','Poetry','Mystery','Fantasy','Psychology','Business','Technology','Horror','Romance','Adventure','Thriller','Comedy','Art & Design','Spirituality'];
+    res.render("form.ejs", {pageTitle : "New Note", categories : UnqCategories, formTitle : "Create New Note", allCategories : allCategories, note : {}});
 });
 
 app.get("/notes/:id", async (req, res) => {
@@ -74,10 +75,8 @@ app.get("/notes/:id", async (req, res) => {
     const result = await db.query("SELECT * FROM notes WHERE id = $1", [id]);
     const note = result.rows[0];
     console.log(note);
-    res.render("view.ejs", { pageTitle: "View Note", categories: categories, note : note });
+    res.render("view.ejs", { pageTitle: "View Note", categories: UnqCategories, note : note });
 });
-
-
 
 app.listen(port, () => {
     console.log(`App running on port ${port}`);

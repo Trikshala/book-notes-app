@@ -150,6 +150,18 @@ h2 {
     cursor: pointer;
 }
 
+.display-form {
+    padding: 0.5% 20%;
+}
+
+.form-group label, .form-check{
+   color :  #34656D;
+   font-weight: bold;
+   padding-top : 1%;
+   padding-bottom: 1%;
+}
+
+
 @media (max-width: 980px) {
     .vnote-container {
         flex-direction: column;
@@ -172,6 +184,7 @@ h2 {
         margin: 0 auto;
 
     }
+
     .edit-note,
     .delete-note {
         text-align: center;
