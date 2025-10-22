@@ -26,11 +26,6 @@
 
 The combination of **aesthetic interface**, **book cover visuals**, and **powerful sorting features** makes managing and revisiting your book notes a breeze. Functional, intuitive, and enjoyable to use.
 
-## Future Plans
-
-- **Login & Authentication** – Keep notes private and user-specific
-- **Advanced Features** – Tagging, note sharing, enhanced search, and more
-
 ## Technologies Used
 
 - **Frontend:** EJS, HTML, CSS, JavaScript, Bootstrap  
@@ -38,6 +33,11 @@ The combination of **aesthetic interface**, **book cover visuals**, and **powerf
 - **Database:** PostgreSQL  
 - **External APIs:** Book cover fetching API - [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
 
+## Future Plans
+
+- **Login & Authentication** – Keep notes private and user-specific
+- **Advanced Features** – Tagging, note sharing, enhanced search, and more
+  
 ## How to Run
 
 1. **Clone the repository**
