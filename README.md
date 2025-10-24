@@ -40,6 +40,25 @@ The combination of **aesthetic interface**, **book cover visuals**, and **powerf
   
 ## How to Run
 
+## Database Setup (To run this on your local system)
+
+Make sure PostgreSQL is installed and running.  
+Create a new database (for example, `notevault_db`) and use the following SQL query to create the `notes` table:
+
+```sql
+CREATE TABLE notes(
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(100) NOT NULL,
+	author VARCHAR(100) NOT NULL,
+	isbn VARCHAR(17) UNIQUE NOT NULL,
+	note TEXT,
+	category TEXT[],
+	rating INTEGER NOT NULL CHECK(rating BETWEEN 1 AND 5),
+	favourite BOOLEAN DEFAULT FALSE,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
 1. **Clone the repository**
 
    ```bash
@@ -65,5 +84,3 @@ The combination of **aesthetic interface**, **book cover visuals**, and **powerf
    ```
    http://localhost:3000
    ```
-
-
